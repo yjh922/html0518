@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" side="IE=edge">
+    <meta name="viewport" side="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0px;
+        }
+       
+           
+
+        
+    
+        #side{
+            width: 200px;
+            height: 150px;
+            background: pink;
+            border-radius: 10px;
+            font-size: 20px;
+            
+        }
+    </style>
+    <script>
+        let wrapper;
+        let side;
+        let x=0;
+        let a=0.1;
+        let flag=false;
+
+        function move(){
+            if(flag){
+                x=0;
+            }else{
+                x=-150
+            }
+            side.style.left=parseFloat(side.style.left)+a*(x-parseFloat(side.style.left))+"px";
+        }
+
+        function init(){
+            wrapper=document.getElementById("wrapper");
+            
+            side=document.getElementById("side");
+            side.style.position="absolute";
+            side.style.left=-150+"px";
+        }
+        
+        addEventListener("load", function(){
+            init();
+            setInterval("move()", 10);
+            side.addEventListener("click", function(){
+                move();
+                flag=!flag
+            })
+
+        });
+    </script>
+</head>
+<body>
+    
+    
+    <div id="side">
+        <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>Product</li>
+            <li>Contact</li>
+        </ul>
+    </div>
+
+    
+</body>
+</html>
